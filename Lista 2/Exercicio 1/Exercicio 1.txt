@@ -1,0 +1,122 @@
+--- Conceitos de Orientação a Objetos ---
+
+a) Classe: É um modelo que define métodos e atributos para criar objetos.
+
+public class Banda {
+    String nome;
+}
+
+
+b) Objeto: É a instância concreta de uma classe com seus próprios valores nos atributos.
+
+public class TesteBanda {
+    public static void main(String[] args) {
+        Banda nacional = new Banda();  
+        nacional.nome = "Detonautas";
+
+        Banda internacional = new Banda();  
+        internacional.nome = "Linkin Park";
+
+        System.out.println("Banda nacional: " + nacional.nome);
+        System.out.println("Banda internacional: " + internacional.nome);
+    }
+}
+
+
+c) Atributo: é uma característica ou propriedade de uma classe que cada objeto pode ter.
+
+public class BandaComAtributo {
+    String nome;  
+}
+
+
+d) Método:é uma ação ou comportamento de uma classe que pode ser executado pelos seus objetos.
+
+public class LinkinPark {
+    void cantar() {
+        System.out.println("Because you're Stained!");
+    }
+}
+
+
+e) Abstração: é o princípio de esconder os detalhes internos de como algo funciona e mostrar apenas o que é essencial para o uso.
+
+abstract class BandaAbstrata {
+    abstract void tocar();
+}
+
+class Detonautas extends BandaAbstrata {
+    void tocar() {
+        System.out.println("Detonautas irá tocar \"Retorno de Saturno\" nesse show.");
+    }
+}
+
+
+f) Encapsulamento: é o princípio de proteger os dados de uma classe, controlando o acesso aos seus atributos e métodos.
+
+public class BandaEncapsulada {
+    private String nome;
+    private String genero;
+    private int integrantes;
+
+    public String getNome() {
+        return nome;
+    }
+}
+
+
+g) Herança: é o princípio que permite que uma classe receba atributos e métodos de outra classe, aproveitando funcionalidades já existentes. Uma classe filha herda características de uma classe mãe, podendo adicionar ou modificar comportamentos.
+
+class BandaGenerica {
+    
+    void tocar() {
+        System.out.println("A banda está tocando!");
+    }
+}
+
+class LinkinParkHeranca extends BandaGenerica {
+    
+    void cantar() {
+        System.out.println("O vocalista começou a cantar!");
+    }
+}
+
+public class MainHeranca {
+    public static void main(String[] args) {
+
+        LinkinParkHeranca banda = new LinkinParkHeranca();
+
+        banda.tocar();  
+        banda.cantar();  
+    }
+}
+
+
+h) Polimorfismo: é a capacidade de um método se comportar de formas diferentes dependendo do objeto que o chama, mesmo tendo a mesma assinatura.
+
+class BandaGenerica {
+    void tocar() {
+        System.out.println("A banda está tocando!");
+    }
+}
+
+class LinkinParkPoli extends BandaGenerica {
+    
+    void tocar() {
+        System.out.println("Linkin Park está tocando!");
+    }
+
+    void cantar() {
+        System.out.println("O vocalista começou a cantar!");
+    }
+}
+
+public class MainPolimorfismo {
+    public static void main(String[] args) {
+        BandaGenerica banda1 = new BandaGenerica();
+        BandaGenerica banda2 = new LinkinParkPoli(); 
+
+        banda1.tocar();  
+        banda2.tocar();  
+    }
+}
